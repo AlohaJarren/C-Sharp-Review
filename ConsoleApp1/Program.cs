@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.InteropServices;
 using System.Text;
+using ConsoleApp1;
 
 namespace Consolepp1
 {
@@ -442,6 +444,42 @@ namespace Consolepp1
             //CarColor car1 = CarColor.Blue;
             //PaintCar(car1);
 
+            ////Structs
+            Rectangle rect1;
+            rect1.length = 200;
+            rect1.width = 50;
+            Console.WriteLine("Area of rect1 : {0}", rect1.Area());
+            Rectangle rect2 = new Rectangle(100, 40);
+            rect2 = rect1;
+            rect1.length = 33;
+            Console.WriteLine("Rect2.length : {0}", rect2.length);
+
+            Animal fox = new Animal()
+            {
+                name = "Red",
+                sound = "Raaw"
+            };
+
+            Console.WriteLine("# of Animals : {0}", Animal.GetNumAnimals());
+            Console.WriteLine("Area of Rectangle : {0}", ShapeMath.GetArea("rectangle", 5, 6));
+
+        }
+
+        ////Structs
+        struct Rectangle
+        {
+            public double length;
+            public double width;
+
+            public Rectangle(double l = 1, double w = 1)
+            {
+                length = l;
+                width = w;
+            }
+            public double Area()
+            {
+                return length * width;
+            }
         }
     }
 }
