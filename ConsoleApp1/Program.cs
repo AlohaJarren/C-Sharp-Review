@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Text;
 
 namespace Consolepp1
 {
@@ -7,15 +9,109 @@ namespace Consolepp1
 
         // ------------ FUNCTIONS ------------
 
-        static void PrintArray(int[] intArray, string mess)
-        {
-            foreach (int k in intArray)
-            {
-                Console.WriteLine("{0} : {1}", mess, k);
-            }
-        }
+        //static void PrintArray(int[] intArray, string mess)
+        //{
+        //    foreach (int k in intArray)
+        //    {
+        //        Console.WriteLine("{0} : {1}", mess, k);
+        //    }
+        //}
+
+        //static double DoDivision(double x, double y)
+        //{
+        //    if (y == 0)
+        //    {
+        //        throw new System.DivideByZeroException();
+        //    }
+        //    return x / y;
+        //}
+
+        //// Functions
+        // <Access Specifier> <Return Type> <Method Name>(Parameters) 
+        // { <body> }
+
+        // Access Specifier determines whether the function can be called from another class
+        
+        // public : Can be accessed from another class
+        // private : Can't be accessed from another class
+        // protected : Can't be accessed by class, but accessible through derived classes
+
+        //private static void SayHello()
+        //{
+        //    string name = "";
+        //    Console.Write("What is your name : ");
+        //    name = Console.ReadLine();
+        //    Console.WriteLine("Hello {0}", name);
+        //}
+
+        //static double GetSum(double x = 1, double y = 1)
+        //{
+        //    double temp = x;
+        //    x = y;
+        //    y = temp;
+        //    return x + y;
+        //}
+
+        //// Out Parameter
+        //static void DoubleIt(int x, out int solution)
+        //{
+        //    solution = x * 2;
+        //}
+
+        //// Pass By Reference
+        //public static void Swap(ref int num3, ref int num4)
+        //{
+        //    int temp = num3;
+        //    num3 = num4;
+        //    num4 = temp;
+        //}
+
+        //// Passing Unknown Number of Parameters
+        //static double GetSumMore(params double[] nums)
+        //{
+        //    double sum = 0;
+        //    foreach(int i in nums)
+        //    {
+        //        sum += i;
+        //    }
+        //    return sum;
+        //}
+
+        //// Name Parameters
+        //static void PrintInfo(string name, int zipCode)
+        //{
+        //    Console.WriteLine("{0} lives in the zipcode {1}", name, zipCode);
+        //}
+
+        //// Method Overloading
+        //static double GetSum2(double x = 1, double y = 1)
+        //{
+        //    return x + y;
+        //}
+
+        //static double GetSum2(string x = "1", string y = "1")
+        //{
+        //    double dblX = Convert.ToDouble(x);
+        //    double dblY = Convert.ToDouble(y);
+        //    return dblX + dblY;
+        //}
+
+        //// Enumerated Types
+        //static void PaintCar(CarColor cc)
+        //{
+        //    Console.WriteLine("The car was painted {0} with the code {1}", cc, (int)cc);
+        //} 
 
         // ------------ END OF FUNCTIONS ---------------
+
+        //enum CarColor : byte
+        //{
+        //    Orange = 1,
+        //    Blue,
+        //    Green,
+        //    Red,
+        //    Yellow
+        //}
 
         static void Main(string[] args) //static: do not need to create new obj for class to call function
         {
@@ -169,6 +265,183 @@ namespace Consolepp1
 
             //int[] numArray = { 1, 11, 22 };
             //Error Console.WriteLine("> 10 : {0}", Array.Find(numArray, GT10));
+
+            ////Conditionals
+            // Relational Operators : > < >= <= == !=
+            // Logical Operators : && || !
+            //int age = 17;
+            //if ((age >= 5) && (age <= 8))
+            //{
+            //    Console.WriteLine("Go to elementary school");
+            //}
+            //if ((age > 7) && (age < 13))
+            //{
+            //    Console.WriteLine("Go to middle school");
+            //}
+            //if ((age > 13) && (age < 19))
+            //{
+            //    Console.WriteLine("Go to high school");
+            //} else { Console.WriteLine("Go to college"); }
+
+            //if ((age < 14) || (age > 67))
+            //{
+            //    Console.WriteLine("You shouldn't work");
+            //}
+            //Console.WriteLine("! true = " + (!true));
+
+            //bool canDrive = age >= 16 ? true : false;
+
+            //switch (age)
+            //{
+            //    case 1:
+            //    case 2:
+            //        Console.WriteLine("Go to Day Care");
+            //        break;
+            //    case 3:
+            //    case 4: 
+            //        Console.WriteLine("Go to Preschool");
+            //        break;
+            //    case 5:
+            //        Console.WriteLine("Go to Kindergarten");
+            //        break;
+            //    default:
+            //        Console.WriteLine("Go to another school");
+            //        goto OtherSchool;
+            //}
+
+            //OtherSchool:
+            //    Console.WriteLine("Elementary, Middle, High School");
+
+            //string name2 = "Derek";
+            //string name3 = "Derek";
+            //if(name2.Equals(name3, StringComparison.Ordinal))
+            //{
+            //    Console.WriteLine("Names are equal");
+            //}
+
+
+            //// While Loop
+            //int i = 1;
+            //while(i <= 10)
+            //{
+            //    if (i % 2 == 0)
+            //    {
+            //        i++;
+            //        continue;
+            //    }
+            //    if (i == 9) break;
+            //    Console.WriteLine(i);
+            //    i++
+            //}
+
+            //// Do-While Loop
+            //Random rnd = new Random();
+            //int secretNumber = rnd.Next(1, 11);
+            //int numberGuessed = 0;
+            //Console.WriteLine("Random Num : ", secretNumber);
+
+            //do
+            //{
+            //    Console.WriteLine("Enter a number between 1 & 10 : ");
+            //    numberGuessed = Convert.ToInt32(Console.ReadLine());
+
+            //} while (secretNumber != numberGuessed);
+
+            //Console.WriteLine("You guessed it, it was {0}", secretNumber);
+
+
+            ////Exception Handling
+            //double num1 = 5;
+            //double num2 = 0;
+
+            //try
+            //{
+            //    Console.WriteLine("5 / 0 = {0}", DoDivision(num1, num2));
+            //}
+            //catch (DivideByZeroException ex)
+            //{
+            //    Console.WriteLine("You can't divide by zero");
+            //    Console.WriteLine(ex.GetType().Name);
+            //    Console.WriteLine(ex.Message);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("An error occurred");
+            //    Console.WriteLine(ex.GetType().Name);
+            //    Console.WriteLine(ex.Message);
+            //}
+            //finally
+            //{
+            //    Console.WriteLine("Cleaning Up");
+            //}
+
+
+            ////String Builder
+            //StringBuilder sb = new StringBuilder("Random text");
+            //StringBuilder sb2 = new StringBuilder("More stuff that is very important", 256);
+            //Console.WriteLine("Capacity : {0}", sb2.Capacity);
+            //Console.WriteLine("Length : {0}", sb2.Length);
+            //sb2.AppendLine("\nMore important text");
+            //CultureInfo enUS = CultureInfo.CreateSpecificCulture("en-US");
+            //string bestCust = "Bob Smith";
+            //sb2.AppendFormat(enUS, "Best Customer : {0}", bestCust);
+            //Console.WriteLine(sb2.ToString());
+            //sb2.Replace("text", "characters");
+            //Console.WriteLine(sb2.ToString());
+            //sb2.Clear();
+            //sb2.Append("Random Text");
+            //Console.WriteLine(sb.Equals(sb2));
+            //sb2.Insert(11, " that's great");
+            //Console.WriteLine(sb2.ToString());
+            //sb2.Remove(11, 7);
+            //Console.WriteLine(sb2.ToString()); 
+
+            //// Functions
+            //SayHello();
+            //double x = 5;
+            //double y = 4;
+            //Console.WriteLine("5 + 4 = {0}", GetSum(x, y));
+            //Console.WriteLine("x = {0}", x);
+
+            //// Out Parameter
+            //int solution;
+            //DoubleIt(15, out solution);
+            //Console.WriteLine("15 * 2 = {0}", solution);
+
+            //// Pass By Reference
+            //int num3 = 10;
+            //int num4 = 20;
+            //Console.WriteLine("Before Swap num3 : {0} num4 : {1}", num3, num4);
+            //Swap(ref num3, ref num4);
+            //Console.WriteLine("After Swap num3 : {0} num4 : {1}", num3, num4);
+
+            //// Passing Unknown Number of Parameters
+            //Console.WriteLine("1 + 2 + 3 = {0}", GetSumMore(1, 2, 3));
+
+            //// Name Parameters
+            //PrintInfo(zipCode: 97203, name: "Jarren Calzone");
+
+            ////Method Overloading
+            //Console.WriteLine("5.0 + 4.0 = {0}", GetSum2(5.0, 4.0));
+            //Console.WriteLine("5.0 + 4.0 = {0}", GetSum2("5.0", "4.0"));
+
+            ////DateTime / Time Span
+            //DateTime awesomeDate = new DateTime(1974, 12, 21);
+            //Console.WriteLine("Day of the Week : {0}", awesomeDate.DayOfWeek);
+            //awesomeDate = awesomeDate.AddDays(4);
+            //awesomeDate = awesomeDate.AddMonths(1);
+            //awesomeDate = awesomeDate.AddYears(1);
+            //Console.WriteLine("New Date : {0}", awesomeDate.Date);
+
+            //TimeSpan lunchTime = new TimeSpan(12, 30, 0);
+            //lunchTime = lunchTime.Subtract(new TimeSpan(0, 15, 0));
+            //Console.WriteLine("New Time : {0}", lunchTime.ToString());
+
+
+            ////Enumerated Types
+            //CarColor car1 = CarColor.Blue;
+            //PaintCar(car1);
+
         }
     }
 }
